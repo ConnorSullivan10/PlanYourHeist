@@ -39,10 +39,6 @@ namespace PlanYourHeist
             {
                 Console.WriteLine("Woah woah woah, I said between 0 and 2 please. Please start again.");
             }
-
-
-
-
         }
     }
 }
