@@ -2,46 +2,51 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PlanYourHeist
+namespace BankHeist
 {
-
     class TeamMember
     {
+        private int _skillLevel;
+        private decimal _courageFactor;
         public string Name { get; set; }
-
-        int _skillLevel;
-        public int SkillLevel 
+        public int SkillLevel
         {
             get
             {
-                return this._skillLevel;
+                return _skillLevel;
             }
-
             set
             {
-                this._skillLevel = Math.Abs(value);
+                if (value > 0)
+                {
+                    _skillLevel = value;
+                }
             }
         }
-
-        decimal _courageFactor;
-        public decimal CourageFactor 
+        public decimal CourageFactor
         {
             get
             {
-                return this._courageFactor;
+                return _courageFactor;
             }
-
-
-            set 
+            set
             {
-                this._courageFactor = Math.Round(value, 1);
+                if (value >= 0.0m && value <= 2.0m)
+                {
+                    _courageFactor = value;
+                }
+                else
+                {
+                    _courageFactor = 3.0m;
+                }
             }
-
         }
 
-        public TeamMember (string name)
+        public TeamMember(string name, int skillLevel, decimal courageFactor)
         {
             Name = name;
+            SkillLevel = skillLevel;
+            CourageFactor = courageFactor;
         }
     }
 }
